@@ -29,11 +29,13 @@
     pkgs.git
     pkgs.ripgrep
     pkgs.fd
+    pkgs.fzf
     pkgs.jq
-    pkgs.tmux
     pkgs.gh
     pkgs.zip
     pkgs.neovim
+    pkgs.tmux
+    pkgs.alacritty
 
     # Kubernetes
     pkgs.kubectl
