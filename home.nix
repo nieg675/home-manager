@@ -5,6 +5,7 @@
   # manage.
   home.username = "niels";
   home.homeDirectory = "/home/niels";
+  #???
   xdg.cacheHome = "/home/niels/snap/alacritty/common/.cache";
 
   # This value determines the Home Manager release that your configuration is
@@ -19,24 +20,38 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
+    # Core
+    pkgs.gnumake
+    pkgs.protobuf
+    pkgs.direnv
+    pkgs.nix-direnv
     pkgs.tree
-    pkgs.hello
+    pkgs.git
+    pkgs.ripgrep
+    pkgs.fd
+    pkgs.jq
+    pkgs.tmux
+    pkgs.gh
+    pkgs.zip
+    pkgs.neovim
 
-    #pkgs.kubectl
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+    # Kubernetes
+    pkgs.kubectl
+    pkgs.kubelogin
+    pkgs.kubernetes-helm
+    pkgs.tilt
+    pkgs.kind
+    pkgs.ctlptl
+    pkgs.kustomize
+    pkgs.azure-cli
 
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
+    # Languages
+    pkgs.beam.packages.erlang_27.elixir_1_18
+    pkgs.beam.interpreters.erlang_27
+    pkgs.rebar3
+    #rustc/cargo?
+    pkgs.rustup
+    pkgs.nodejs
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -71,7 +86,6 @@
   #  /etc/profiles/per-user/niels/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
   };
 
   # Let Home Manager install and manage itself.
